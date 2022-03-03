@@ -58,7 +58,7 @@ fun main() {
 class Automovil {
     // Propiedades
     var modelo: String = ""
-    var marca: String = ""
+    var marca: String = "clavesecreta"
     var anio: Int = 0
 }
 
