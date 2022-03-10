@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".NoticiaActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <ImageView
+        android:id="@+id/photoImageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/aviones" />
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline4">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="The United States on Wednesday closed the door on supplying combat aircraft to Ukraine, saying the intelligence community assessed it would be a &quot;high risk&quot; move that could increase the chances of a Russian escalation with NATO.  NATO ally Poland surprised Washington on Tuesday with a public offer to transfer its Russian-made MiG-29 fighter jets to a U.S. base in Germany as a way to replenish Ukraine's air force. Kyiv has implored the West for combat aircraft.  Pentagon spokesman John Kirby explained the U.S. decision, saying that the transfer of MiG-29s would change little for Ukraine relative to Russian capabilities, and stressed U.S. support for supplying other types of weapons.  &quot;The intelligence community has assessed that the transfer of MiG-29s to Ukraine may be mistaken as escalatory and could result in significant Russian reaction that might increase the prospects of a military escalation with NATO,&quot; Kirby said.  &quot;Therefore, we also assess that the transfer of MiG-29s to Ukraine to be high risk.&quot;  Kirby declined to offer details on what specifically drove the U.S. intelligence assessment.  The United States has sought to speed weapons deliveries to Ukraine. But it shuddered on Tuesday at the prospect of flying combat aircraft from NATO territory into the war zone.  Russia's defense ministry warned this week that countries even offering air fields to Ukraine – let alone flying in fighter jets – for attacks on Russia may be considered as having entered the conflict.  NATO has said it does not want direct conflict with Russia, a fellow nuclear-armed power, and President Joe Biden has ruled out sending U.S. troops into Ukraine to fight, something the Pentagon has said would apply to troops on the ground or in the air, flying missions.  Although the Pentagon denied that the decision on Poland's offer amounted to a new red line, it did indicate that supplying Ukraine with combat aircraft is yet another military option that has been taken off the table, at least for now  The United States has also ruled out calls from Kyiv to create a no-fly zone over Ukraine, something military experts say would be equivalent to the United States entering the war against Russia.  The Pentagon detailed the U.S. position after a call between U.S. Defense Secretary Lloyd Austin and his Polish counterpart, where Austin thanked Poland for its support.  Austin will travel to Brussels next week for talks with his NATO counterparts, the Pentagon said, where aiding Ukraine will almost certainly dominate discussions.  The Ukrainian Air Force currently has squadrons of mission-capable aircraft, and additional MiGs would provide little gain, overall, Kirby said.  &quot;We believe the best way to support Ukrainian defense is by providing them the weapons and the systems they need most to defeat Russian aggression, in particular anti-armor and air defense,&quot; he said.  © 2022 Thomson/Reuters. All rights reserved." />
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tituloTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline4"
+        app:layout_constraintEnd_toEndOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
