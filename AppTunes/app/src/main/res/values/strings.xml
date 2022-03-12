@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AppTunes</string>
+    <string name="search_hint">Búsqueda de Artista ...</string>>
 </resources>

@@ -1,7 +1,9 @@
 package bo.edu.ucatec.postgrado.cursos.android.apptunes
 
+import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
 import android.widget.TextView
 import android.widget.Toast
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buscarCanciones(artista: String) {
+        cerrarteclado()
         val call = itunesService.obtenerCanciones(artista)
 
         call.enqueue(object : Callback<Resultado?> {
@@ -56,11 +59,7 @@ class MainActivity : AppCompatActivity() {
                         canciones.addAll(resultado.canciones)
                         cancionAdapter.notifyDataSetChanged()
                     }
-
-
                 }
-
-
             }
 
             override fun onFailure(call: Call<Resultado?>, t: Throwable) {
@@ -70,5 +69,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    fun cerrarteclado() {
+        val view = this.currentFocus
+        if (view != null) {
+            val manager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            manager.hideSoftInputFromWindow(view.windowToken, 0)
+        }
+    }
 
 }
