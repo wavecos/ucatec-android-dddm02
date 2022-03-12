@@ -30,10 +30,10 @@ class MainActivity : AppCompatActivity() {
 
         // RecyclerView
         val cancionesRecyclerView = findViewById<RecyclerView>(R.id.cancionesRecyclerView)
-
         val busquedaTextView = findViewById<TextView>(R.id.busquedaTextView)
 
-        findViewById<ImageButton>(R.id.searchButton).setOnClickListener {
+        val searchButton = findViewById<ImageButton>(R.id.searchButton)
+        searchButton.setOnClickListener {
             buscarCanciones(busquedaTextView.text.toString())
         }
 
