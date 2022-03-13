@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageButton
+import android.widget.ProgressBar
 import android.widget.TextView
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,11 +23,17 @@ class MainActivity : AppCompatActivity() {
     val itunesService = ITunesService()
     var canciones = ArrayList<Cancion>()
 
+    lateinit var progressBar: ProgressBar
+
     lateinit var cancionAdapter: CancionAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        // Indicador de Progreso (al inicio invisile)
+        progressBar = findViewById(R.id.progressBar)
+        progressBar.visibility = ProgressBar.INVISIBLE
 
         // RecyclerView
         val cancionesRecyclerView = findViewById<RecyclerView>(R.id.cancionesRecyclerView)
@@ -45,6 +52,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun buscarCanciones(artista: String) {
+        progressBar.visibility = ProgressBar.VISIBLE
         cerrarteclado()
         val call = itunesService.obtenerCanciones(artista)
 
@@ -52,6 +60,8 @@ class MainActivity : AppCompatActivity() {
             override fun onResponse(call: Call<Resultado?>, response: Response<Resultado?>) {
 
                 if (response.isSuccessful) {
+                    progressBar.visibility = ProgressBar.INVISIBLE
+
                     val resultado = response.body()
 
                     if (resultado != null) {
@@ -59,10 +69,14 @@ class MainActivity : AppCompatActivity() {
                         canciones.addAll(resultado.canciones)
                         cancionAdapter.notifyDataSetChanged()
                     }
+                } else {
+                    progressBar.visibility = ProgressBar.INVISIBLE
                 }
             }
 
             override fun onFailure(call: Call<Resultado?>, t: Throwable) {
+                progressBar.visibility = ProgressBar.INVISIBLE
+
                 Toast.makeText(this@MainActivity, t.message, Toast.LENGTH_LONG).show()
             }
         })

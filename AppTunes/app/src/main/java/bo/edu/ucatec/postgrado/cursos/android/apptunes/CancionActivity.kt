@@ -2,6 +2,7 @@ package bo.edu.ucatec.postgrado.cursos.android.apptunes
 
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -40,6 +41,9 @@ class CancionActivity : AppCompatActivity() {
             player.setDataSource(cancionUrl)
             player.prepare()
             player.start()
+
+            // Escondemos el boton de Play
+            playImageView.visibility = View.INVISIBLE
         }
 
     }
